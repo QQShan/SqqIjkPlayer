@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    /*compile project(':ijkplayer-exo')*/
+
+    /*# required, enough for most devices.、*/
+    compile 'tv.danmaku.ijk.media:ijkplayer-java:0.5.1'
+    compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.5.1'
+
+    /*# Other ABIs: optional*/
+    compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.5.1'
+    /*compile 'tv.danmaku.ijk.media:ijkplayer-arm64:0.5.1'*/
+    compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.5.1'
+    /*compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.5.1'*/
+
+    /*# ExoPlayer as IMediaPlayer: optional, experimental*/
+    compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.5.1'
+}
