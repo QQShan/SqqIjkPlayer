@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     private int mMaxVolume;
     private int volume=-1;
     private float brightness=-1;
-    private long newPosition;
+    private long newPosition=-1;
 
     private boolean isToolbarShow = true;
     private boolean mBackPressed = false;
@@ -433,6 +433,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                     tv_forward.setText("");
                     videoView.seekTo((int) newPosition);
                     videoView.start();
+                    newPosition = -1;
                     break;
             }
         }
@@ -746,6 +747,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             }
 
             if (toSeek) {
+
                 onProgressSlide(-deltaX / videoView.getWidth());
             } else {
                 float percent = deltaY / videoView.getHeight();
